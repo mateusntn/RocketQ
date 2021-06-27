@@ -5,10 +5,16 @@ module.exports = {
         const db = await Database();
         const pass = req.body.password;
         let roomId = "";
+        let ifExist;
 
-        for(let i = 0; i < 6; i++) {
-            roomId += Math.floor(Math.random() * 10).toString();
-        }
+        do {
+            for(let i = 0; i < 6; i++) {
+                roomId += Math.floor(Math.random() * 10).toString();
+            }
+    
+            const roomsDb =  await db.all(`SELECT id FROM rooms`);
+            ifExist = roomsDb.some(id => roomId === id);
+        } while(ifExist);
 
         await db.run(`INSERT INTO rooms (
             id,
