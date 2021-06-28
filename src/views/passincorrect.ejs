@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/global.css">
+    <title>Senha Incorreta</title>
+
+    <style>
+        body {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            color: var(--white);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        div h2 {
+            font-size: 2rem;
+            color: var(--grey-dark);
+        }
+
+        button {
+            padding: 0 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>A senha digitada é inválida</h1>
+        <h2>Volte para a sala e tente novamente</h2>
+    </div>
+    <button onclick="window.location.replace('/room/<%= roomId %>')">Voltar</button>
+</body>
+</html>
