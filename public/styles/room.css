@@ -57,7 +57,7 @@
     background: transparent;
 
     width: 100%;
-
+    color: var(--white);
     outline: none;
 }
 
