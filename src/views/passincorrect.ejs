@@ -32,9 +32,9 @@
 </head>
 <body>
     <div>
-        <h1>A senha digitada é inválida</h1>
-        <h2>Volte para a sala e tente novamente</h2>
+        <h1><%= title %></h1>
+        <h2><%= subtitle %></h2>
     </div>
-    <button onclick="window.location.replace('/room/<%= roomId %>')">Voltar</button>
+    <button onclick="window.location.replace('<%= url %>')">Voltar</button>
 </body>
 </html>

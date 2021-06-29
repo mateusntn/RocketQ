@@ -36,6 +36,24 @@ module.exports = {
         const questionsRead = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and isRead = 1`);
 
         res.render("room", {roomId: roomId, questions: questions, questionsRead: questionsRead});
+    },
+    async enter (req, res) {
+        const db = await Database();
+        const roomId = req.body.roomId;
+
+        if (!roomId) {
+            res.render('passincorrect', {url: `/`, title: 'O código digitado é invalido.', subtitle: 'Volte para o início e tente novamente'});
+        }
+
+
+        const searchRoom = await db.get(`SELECT * FROM rooms WHERE id = ${roomId}`);
+
+        if(searchRoom) {
+            res.redirect(`/room/${roomId}`);
+        } 
+        
+        res.render('passincorrect', {url: `/`, title: 'O código digitado é invalido.', subtitle: 'Volte para o início e tente novamente'});
+        
     }
 
 }

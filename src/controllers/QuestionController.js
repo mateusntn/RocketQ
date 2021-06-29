@@ -17,7 +17,7 @@ module.exports = {
             }
             res.redirect(`/room/${roomId}`);
         } else {
-            res.render('passincorrect', {roomId: roomId});
+            res.render('passincorrect', {url: `/room/${roomId}`, title: 'A senha digitada é inválida', subtitle: 'Volte para a sala e tente novamente'});
         }
 
     },
